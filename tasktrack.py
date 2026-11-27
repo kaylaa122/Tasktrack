@@ -1,9 +1,23 @@
 """A command-line task manager created for CPS 310.
 
-Author: Your Name
+Author: Kemi Olusi
+
 Course: CPS 310
 """
+def load_tasks():
+    """Load tasks from the tasks.txt file."""
+    try:
+        with open("tasks.txt", "r") as file:
+            tasks = [line.strip() for line in file]
+        return tasks
+    except FileNotFoundError:
+        return []
 
+def save_tasks(tasks):
+    """Save tasks to the tasks.txt file."""
+    with open("tasks.txt", "w") as file:
+        for task in tasks:
+            file.write(task + "\n")
 
 def display_menu():
     """Display the available TaskTrack menu options."""
@@ -16,18 +30,20 @@ def display_menu():
 def add_task(tasks):
     """Prompt the user for a task and add it to the task list."""
     task = input("Enter a new task: ").strip()
+
     if not task:
         print("Task cannot be empty.")
         return
-
+     
     tasks.append(task)
+    save_tasks(tasks)
     print("Task added successfully.")
 
 
 def view_tasks(tasks):
     """Display all tasks currently stored in the task list."""
     if not tasks:
-        print("Your task list is currently empty. Add a task to get started!")
+        print("No tasks found.")
         return
 
     print("\nTasks:")
@@ -38,7 +54,7 @@ def view_tasks(tasks):
 
 def main():
     """Run the TaskTrack menu until the user chooses to exit."""
-    tasks = []
+    tasks = load_tasks()
 
     while True:
         display_menu()

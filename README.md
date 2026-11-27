@@ -8,6 +8,10 @@ TaskTrack is a simple command-line program that lets users manage tasks.
 ## Current Features
 - Add tasks
 - View tasks
+- Save tasks to tasks.txt
+- Load saved tasks when the program starts
+- Prevent empty tasks from being added
+
 
 ## Running the Program
 Run this in the terminal:

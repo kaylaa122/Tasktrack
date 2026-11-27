@@ -15,3 +15,6 @@ python tasktrack.py
 
 ## Current Limitation
 Tasks are not saved. They disappear when the program closes.
+How It Works
+Tasks are stored in a list while the program is running.
+Users can add tasks, view their tasks and exit the program.

@@ -27,7 +27,7 @@ def add_task(tasks):
 def view_tasks(tasks):
     """Display all tasks currently stored in the task list."""
     if not tasks:
-        print("No tasks found.")
+        print("Your task list is currently empty. Add a task to get started!")
         return
 
     print("\nTasks:")
